@@ -11,6 +11,7 @@ namespace Core.Models
         string WebsiteUrl { get; set; }
         string NewsSource { get; set; }
         List<string> HeadlineXpaths { get; set; }
+        string TitleXpath { get; set; }
         string HeadlineURLXPath { get; set; }
         List<string> ArticleXPaths { get; set; }
         string Headline { get; set; }
@@ -20,5 +21,8 @@ namespace Core.Models
         string SearchStringEnd { get; set; }
         int SearchStringOffset { get; set; }
         string UrlModify { get; set; }
+        string ImageXpath { get; set; }
+        string ImageSsStart { get; set; }
+        string ImageSsEnd { get; set; }
     }
 }

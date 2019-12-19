@@ -35,6 +35,21 @@ namespace Core
             return new BBCModel();
         }
 
+        public static IWebsiteModel CreateTheVergeModel()
+        {
+            return new TheVergeModel();
+        }
+
+        public static IWebsiteModel CreateCnetModel()
+        {
+            return new CnetModel();
+        }
+
+        //public static IWebsiteModel Create9to5Google()
+        //{
+        //    return new _9to5GoogleModel();
+        //}
+
         public static DataEntryModel CreateDataEntryModel()
         {
             return new DataEntryModel();
@@ -42,12 +57,12 @@ namespace Core
 
         public static DataEntry CreateDataEntry()
         {
-            return new DataEntry();
+            return new DataEntry(new NewsDBDataContext());
         }
 
         public static Substring CreateSubstring()
         {
-            return new Substring();
+            return new Substring(new Logger());
         }
 
         public static Logger CreateLogger()

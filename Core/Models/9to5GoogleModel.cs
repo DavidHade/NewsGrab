@@ -6,37 +6,34 @@ using System.Threading.Tasks;
 
 namespace Core.Models
 {
-    public class NyTimesModel : IWebsiteModel
+    public class _9to5GoogleModel
     {
-        public NyTimesModel()
+        public _9to5GoogleModel()
         {
-            WebsiteUrl = "https://www.nytimes.com";
-            NewsSource = "nytimes";
+            WebsiteUrl = "https://ww.9to5google.com";
+            NewsSource = "9to5Google";
             HeadlineXpaths = new List<string>
             {
-                "//body/div/div/main/div/div/div/div/div/section/div/div/div/div/div/article/div/div",
-                "//body/div/div/main/div/div/div/div/div/section/div/div/div/div/div/div/div/div/article/div/div"
+                "//body/div[4]/article/div/h1"
             };
-            TitleXpath = "//h1/span";
-            
             ArticleXPaths = new List<string>
             {
-                "//body/div/div/div/div/main/div/article/section/div/div/p"
+                "//body/div[4]/article/div[3]/div/p"
             };
-            SearchStringStart = "href=\"/";
-            SearchStringEnd = "\"><di";
-            SearchStringOffset = 7;
-            UrlModify = "https://www.nytimes.com/";
+            SearchStringStart = "href=\"";
+            SearchStringEnd = "\" itemprop";
+            SearchStringOffset = 0;
+            UrlModify = "";
 
-            ImageXpath = "//body//img";
+            ImageXpath = "//body/div/div[6]/div/div[5]/div/div[2]/div/div/div/div[2]/figure/span/img";
             ImageSsStart = "http";
             ImageSsEnd = "\" srcset";
         }
 
+
         public string WebsiteUrl { get; set; }
         public string NewsSource { get; set; }
         public List<string> HeadlineXpaths { get; set; }
-        public string TitleXpath { get; set; }
         public string HeadlineURLXPath { get; set; }
         public List<string> ArticleXPaths { get; set; }
         public string Headline { get; set; }

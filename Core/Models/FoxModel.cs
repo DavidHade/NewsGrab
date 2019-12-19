@@ -8,12 +8,6 @@ namespace Core.Models
 {
     public class FoxModel : IWebsiteModel
     {
-        //public List<string> headlineXpaths = new List<string>();
-        //public string WebsiteUrl = "https://www.foxnews.com";
-        //public string SearchStringStart = "https";          
-        //public string SearchStringEnd = "\">";
-        //public int SearchStringOffset = 0;
-
         public FoxModel()
         {
             WebsiteUrl = "https://www.foxnews.com";
@@ -22,19 +16,25 @@ namespace Core.Models
             {
                 "//body/div/div/div/div/main/div/div/div/div/article/div/header/h2"
             };
+            TitleXpath = "//body/div/div/div/div[2]/div/main/article/header/h1";
             ArticleXPaths = new List<string>
             {
                 "//body/div/div/div/div/div/main/article/div/div/div/p"
             };
-            SearchStringStart = "https";
+            SearchStringStart = "http";
             SearchStringEnd = "\">";
             SearchStringOffset = 0;
             UrlModify = "";
+
+            ImageXpath = "//body/div/div/div/div/div/main/article/div/div/div/div/div/div[2]/div/a/img";
+            ImageSsStart = "http";
+            ImageSsEnd = "\" alt";
         }
 
         public string WebsiteUrl { get; set; }
         public string NewsSource { get; set; }
         public List<string> HeadlineXpaths { get; set; }
+        public string TitleXpath { get; set; }
         public string HeadlineURLXPath { get; set; }
         public List<string> ArticleXPaths { get; set; }
         public string Headline { get; set; }
@@ -44,5 +44,9 @@ namespace Core.Models
         public string SearchStringEnd { get; set; }
         public int SearchStringOffset { get; set; }
         public string UrlModify { get; set; }
+
+        public string ImageXpath { get; set; }
+        public string ImageSsStart { get; set; }
+        public string ImageSsEnd { get; set; }
     }
 }

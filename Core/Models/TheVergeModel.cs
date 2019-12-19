@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace Core.Models
 {
-    public class NyTimesModel : IWebsiteModel
+    public class TheVergeModel : IWebsiteModel
     {
-        public NyTimesModel()
+        public TheVergeModel()
         {
-            WebsiteUrl = "https://www.nytimes.com";
-            NewsSource = "nytimes";
+            WebsiteUrl = "https://www.theverge.com/tech";
+            NewsSource = "theverge";
             HeadlineXpaths = new List<string>
             {
-                "//body/div/div/main/div/div/div/div/div/section/div/div/div/div/div/article/div/div",
-                "//body/div/div/main/div/div/div/div/div/section/div/div/div/div/div/div/div/div/article/div/div"
+                "//body/div/main/div[4]/div/div[1]/div[1]/div/div/div/div/h2",
+                "//body/div/main/div[5]/div/div[1]/div[1]/div/div/div/div/h2",
+                //"//body/div/main/div[6]/div/div[1]/div[1]/div/div/div/div/h2",
             };
-            TitleXpath = "//h1/span";
-            
+            TitleXpath = "//h1";
             ArticleXPaths = new List<string>
             {
-                "//body/div/div/div/div/main/div/article/section/div/div/p"
+                "//body/div/main/article/div[2]/div/div/p"
             };
-            SearchStringStart = "href=\"/";
-            SearchStringEnd = "\"><di";
-            SearchStringOffset = 7;
-            UrlModify = "https://www.nytimes.com/";
+            SearchStringStart = "http";
+            SearchStringEnd = "\">";
+            SearchStringOffset = 0;
+            UrlModify = "";
 
-            ImageXpath = "//body//img";
+            ImageXpath = "//body/div/main/article/div[2]/div/figure/span/span/picture/img";
             ImageSsStart = "http";
-            ImageSsEnd = "\" srcset";
+            ImageSsEnd = " 320w";
         }
 
         public string WebsiteUrl { get; set; }

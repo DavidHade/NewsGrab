@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace Core.Models
 {
-    public class DataEntryModel
+    public class NewsEntry //Model for EF data
     {
         public DateTime TimeAdded { get; set; }
         public string Headline { get; set; }

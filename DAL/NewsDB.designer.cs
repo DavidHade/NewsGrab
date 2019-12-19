@@ -36,7 +36,7 @@ namespace DAL
     #endregion
 		
 		public NewsDBDataContext() : 
-				base(global::DAL.Properties.Settings.Default.NewsDBConnectionString, mappingSource)
+				base(global::DAL.Properties.Settings.Default.NewsDBConnectionString5, mappingSource)
 		{
 			OnCreated();
 		}
@@ -72,6 +72,22 @@ namespace DAL
 				return this.GetTable<NewsEntry>();
 			}
 		}
+		
+		public System.Data.Linq.Table<PoliticalKeyword> PoliticalKeywords
+		{
+			get
+			{
+				return this.GetTable<PoliticalKeyword>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TechnologyKeyword> TechnologyKeywords
+		{
+			get
+			{
+				return this.GetTable<TechnologyKeyword>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NewsEntry")]
@@ -92,6 +108,10 @@ namespace DAL
 		
 		private string _Article;
 		
+		private string _Imagepath;
+		
+		private string _Category;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -108,6 +128,10 @@ namespace DAL
     partial void OnNewsSourceChanged();
     partial void OnArticleChanging(string value);
     partial void OnArticleChanged();
+    partial void OnImagepathChanging(string value);
+    partial void OnImagepathChanged();
+    partial void OnCategoryChanging(string value);
+    partial void OnCategoryChanged();
     #endregion
 		
 		public NewsEntry()
@@ -235,6 +259,46 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imagepath", DbType="NVarChar(MAX)")]
+		public string Imagepath
+		{
+			get
+			{
+				return this._Imagepath;
+			}
+			set
+			{
+				if ((this._Imagepath != value))
+				{
+					this.OnImagepathChanging(value);
+					this.SendPropertyChanging();
+					this._Imagepath = value;
+					this.SendPropertyChanged("Imagepath");
+					this.OnImagepathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(50)")]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this.OnCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._Category = value;
+					this.SendPropertyChanged("Category");
+					this.OnCategoryChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -252,6 +316,96 @@ namespace DAL
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PoliticalKeywords")]
+	public partial class PoliticalKeyword
+	{
+		
+		private int _id;
+		
+		private string _keyword;
+		
+		public PoliticalKeyword()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_keyword", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string keyword
+		{
+			get
+			{
+				return this._keyword;
+			}
+			set
+			{
+				if ((this._keyword != value))
+				{
+					this._keyword = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TechnologyKeywords")]
+	public partial class TechnologyKeyword
+	{
+		
+		private int _id;
+		
+		private string _keyword;
+		
+		public TechnologyKeyword()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_keyword", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string keyword
+		{
+			get
+			{
+				return this._keyword;
+			}
+			set
+			{
+				if ((this._keyword != value))
+				{
+					this._keyword = value;
+				}
 			}
 		}
 	}

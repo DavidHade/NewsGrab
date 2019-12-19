@@ -62,15 +62,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="HtmlScraper.cs" />
+    <Compile Include="Keywords.cs" />
+    <Compile Include="KeywordTag.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="Models\9to5GoogleModel.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\BBCModel.cs" />
+    <Compile Include="Models\CnetModel.cs" />
     <Compile Include="Models\FoxModel.cs" />
     <Compile Include="Models\IWebsiteModel.cs" />
+    <Compile Include="Models\NewsEntry.cs" />
     <Compile Include="Models\NyTimesModel.cs" />
     <Compile Include="Models\TheGuardianModel.cs" />
-    <Compile Include="Models\WebsiteModel.cs" />
+    <Compile Include="Models\TheVergeModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Substring.cs" />

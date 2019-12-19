@@ -18,25 +18,32 @@ namespace Core
             {
                 
                 HtmlScraper htmlSraper = Factory.CreateHtmlScraper();
-                IWebsiteModel theguardian = Factory.CreateTheGuardian();
-                IWebsiteModel foxnews = Factory.CreateFoxNews();
-                IWebsiteModel nytimes = Factory.CreateNyTimesModel();
-                IWebsiteModel bbcnews = Factory.CreateBbcModel();
+                Logger _logger = Factory.CreateLogger();
 
-                GetData(htmlSraper, theguardian);
-                GetData(htmlSraper, foxnews);
-                GetData(htmlSraper, nytimes);
-                GetData(htmlSraper, bbcnews);
+                //GetData(htmlSraper, new TheGuardianModel());
 
-                void GetData(HtmlScraper htmlscraper, IWebsiteModel model) {
+                GetData(htmlSraper, new NyTimesModel(), "/a");
+                GetData(htmlSraper, new FoxModel(), "/a");
+                GetData(htmlSraper, new BBCModel(), "/a");
+                GetData(htmlSraper, new TheVergeModel(), "/a");
+                GetData(htmlSraper, new CnetModel(),"");
+
+
+                void GetData(HtmlScraper htmlscraper, IWebsiteModel model, string headlineUrlXpath, bool isTest = false) {
                     foreach (var x in model.HeadlineXpaths)
                     {
-                        model.HeadlineURLXPath = x + "/a";
-                        htmlscraper.Parse(model, x);
+                        try
+                        {
+                            model.HeadlineURLXPath = x + headlineUrlXpath;
+                            htmlscraper.Parse(model, x, isTest);
+                        }catch (Exception ex)
+                        {
+                            _logger.Log(ex.ToString(), ConsoleColor.Red);
+                        }
+                        
                     }
-                    Thread.Sleep(500);
                 }
-                Console.WriteLine($"================= Finished at {DateTime.UtcNow}==================");
+                _logger.Log($"============= Finished at {DateTime.UtcNow}=============", ConsoleColor.Red);
                 Thread.Sleep(300000);
             }
         }

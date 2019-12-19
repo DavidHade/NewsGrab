@@ -67,5 +67,27 @@ namespace DAL.Properties {
                 return ((string)(this["NewsDBConnectionString3"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lazynews.database.windows.net;Initial Catalog=NewsDB;User ID=lazynews" +
+            "")]
+        public string NewsDBConnectionString4 {
+            get {
+                return ((string)(this["NewsDBConnectionString4"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lazynews.database.windows.net;Initial Catalog=NewsDB;User ID=lazynews" +
+            ";Password=1CalOmE6TKxio2O!k2")]
+        public string NewsDBConnectionString5 {
+            get {
+                return ((string)(this["NewsDBConnectionString5"]));
+            }
+        }
     }
 }

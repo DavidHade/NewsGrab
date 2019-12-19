@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace Core.Models
 {
-    public class NyTimesModel : IWebsiteModel
+    public class CnetModel : IWebsiteModel
     {
-        public NyTimesModel()
+        public CnetModel()
         {
-            WebsiteUrl = "https://www.nytimes.com";
-            NewsSource = "nytimes";
+            WebsiteUrl = "https://www.cnet.com";
+            NewsSource = "Cnet";
             HeadlineXpaths = new List<string>
             {
-                "//body/div/div/main/div/div/div/div/div/section/div/div/div/div/div/article/div/div",
-                "//body/div/div/main/div/div/div/div/div/section/div/div/div/div/div/div/div/div/article/div/div"
+                "//body/div/div/div/section/div/div/div/div/div/h3/a"
+
             };
-            TitleXpath = "//h1/span";
-            
+            TitleXpath = "//body//h1";
             ArticleXPaths = new List<string>
             {
-                "//body/div/div/div/div/main/div/article/section/div/div/p"
-            };
-            SearchStringStart = "href=\"/";
-            SearchStringEnd = "\"><di";
-            SearchStringOffset = 7;
-            UrlModify = "https://www.nytimes.com/";
+                "//body/div/div/div/div/div/div/div/div/article/div/p"
 
-            ImageXpath = "//body//img";
+            };
+            SearchStringStart = "href=\"";
+            SearchStringEnd = "/\">";
+            SearchStringOffset = 6;
+            UrlModify = "https://www.cnet.com";
+
+            ImageXpath = "//*[@id=\"article-body\"]//span/img";
             ImageSsStart = "http";
-            ImageSsEnd = "\" srcset";
+            ImageSsEnd = "\" class";
         }
 
         public string WebsiteUrl { get; set; }
