@@ -14,7 +14,7 @@ namespace Core
         static void Main(string[] args)
         {
            
-            while (1 == 1) 
+            while (1 == 1)
             {
                 
                 HtmlScraper htmlSraper = Factory.CreateHtmlScraper();
