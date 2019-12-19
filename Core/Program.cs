@@ -16,7 +16,7 @@ namespace Core
            
             while (1 == 1)
             {
-                
+                   
                 HtmlScraper htmlSraper = Factory.CreateHtmlScraper();
                 Logger _logger = Factory.CreateLogger();
 
