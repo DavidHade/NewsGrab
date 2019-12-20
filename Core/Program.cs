@@ -7,13 +7,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using DAL;
 
+
 namespace Core
 {
     class Program
     {
         static void Main(string[] args)
         {
-           
+
             while (1 == 1)
             {
                    
@@ -21,14 +22,12 @@ namespace Core
                 Logger _logger = Factory.CreateLogger();
 
                 //GetData(htmlSraper, new TheGuardianModel());
-
                 GetData(htmlSraper, new NyTimesModel(), "/a");
                 GetData(htmlSraper, new FoxModel(), "/a");
                 GetData(htmlSraper, new BBCModel(), "/a");
                 GetData(htmlSraper, new TheVergeModel(), "/a");
                 GetData(htmlSraper, new CnetModel(),"");
-
-
+                
                 void GetData(HtmlScraper htmlscraper, IWebsiteModel model, string headlineUrlXpath, bool isTest = false) {
                     foreach (var x in model.HeadlineXpaths)
                     {

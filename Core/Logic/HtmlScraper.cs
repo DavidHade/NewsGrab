@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using DAL.EntityFramework.SQL;
 
 namespace Core
 {
@@ -13,16 +14,20 @@ namespace Core
     {
         Substring _ss;
         DataEntryModel _DEM;
+        DAL.EntityFramework.SQL.NewsEntry EFnewsentryModel = new DAL.EntityFramework.SQL.NewsEntry(); //EF data entry model
         DataEntry _DE;
         Logger _logger;
+        DataService dataService;
 
-        public HtmlScraper(Substring substring, DataEntryModel dataEntryModel, 
-            DataEntry dataEntry, Logger logger)
+        public HtmlScraper(Substring substring, DataEntryModel dataEntryModel,
+            DAL.EntityFramework.SQL.NewsEntry efmodel, DataEntry dataEntry, Logger logger, DataService ds)
         {
             _ss = substring;
             _DEM = dataEntryModel;
+            EFnewsentryModel = efmodel;
             _DE = dataEntry;
             _logger = logger;
+            dataService = ds;
         }
 
         public void Parse(IWebsiteModel website, string headlinexpath, bool isTest)
@@ -61,7 +66,8 @@ namespace Core
                     {
                         _logger.Log($"[{website.NewsSource}] " +
                         $"{HtmlEntity.DeEntitize(title.InnerText.Trim())}");
-                        _DEM.Headline = HtmlEntity.DeEntitize(title.InnerText.Trim());
+                        //_DEM.Headline = HtmlEntity.DeEntitize(title.InnerText.Trim());
+                        EFnewsentryModel.Headline = HtmlEntity.DeEntitize(title.InnerText.Trim());
                     }
                     catch(Exception ex)
                     {
@@ -102,21 +108,27 @@ namespace Core
                     }
                     
                     
-                    _DEM.HeadlineUrl = url;
-                    _DEM.NewsSource = website.NewsSource;
+                    //_DEM.HeadlineUrl = url;
+                    EFnewsentryModel.HeadlineUrl = url;
+                    //_DEM.NewsSource = website.NewsSource;
+                    EFnewsentryModel.NewsSource = website.NewsSource;
 
                     if (sb.Length < 1)
                     {
                         _logger.Log($"Returned null article for {headlinexpath}", ConsoleColor.Red);
                     }
 
-                    _DEM.Article = HtmlEntity.DeEntitize(sb?.ToString()); //could be null
-                    _DEM.ImagePath = imgUrl; //could be null
+                    //_DEM.Article = HtmlEntity.DeEntitize(sb?.ToString()); //could be null
+                    EFnewsentryModel.Article = HtmlEntity.DeEntitize(sb?.ToString());
+                    //_DEM.ImagePath = imgUrl; //could be null
+                    EFnewsentryModel.Imagepath = imgUrl;
                    
-                    _DEM.Category = null;
+                    //_DEM.Category = null;
+                    EFnewsentryModel.Category = null;
                     if (!isTest)
                     {
-                        _DE.Execute(_DEM);
+                        //_DE.Execute(_DEM);
+                        dataService.Execute(EFnewsentryModel);
                     } 
                 }
             }

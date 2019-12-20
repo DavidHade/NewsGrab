@@ -1,8 +1,8 @@
-﻿using Core.Contracts;
-using Core.Models;
+﻿using DAL.EntityFramework.SQL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,18 +30,32 @@ namespace DAL.EntityFramework.SQL
             context.SaveChanges();
         }
 
-        public void Delete(string Id)
+        public void Delete(string id)
         {
-            var t = Find(Id);
+            var t = Find(id);
             if (context.Entry(t).State == EntityState.Detached)
                 dbSet.Attach(t);
 
             dbSet.Remove(t);
         }
 
-        public T Find(string Id)
+        public T Find(string id)
         {
-            return dbSet.Find(Id);
+            return dbSet.Find(id);
+            
+        }
+
+        public T FindHeadline(string Headline)
+        {
+            var hd = dbSet.FirstOrDefault(x => x.Headline == Headline);
+            if (hd != null)
+            {
+                return hd;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void Insert(T t)

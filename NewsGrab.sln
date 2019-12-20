@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.EntityFramework.SQL", "DAL.EntityFramework.SQL\DAL.EntityFramework.SQL.csproj", "{B028A7EE-E0F8-4148-B895-474A45D05627}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsGrab.Services", "NewsGrab.Services\NewsGrab.Services.csproj", "{A3BC0ACD-C63E-4DBC-85CA-2ECCD5EC57A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{B028A7EE-E0F8-4148-B895-474A45D05627}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B028A7EE-E0F8-4148-B895-474A45D05627}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B028A7EE-E0F8-4148-B895-474A45D05627}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3BC0ACD-C63E-4DBC-85CA-2ECCD5EC57A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3BC0ACD-C63E-4DBC-85CA-2ECCD5EC57A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3BC0ACD-C63E-4DBC-85CA-2ECCD5EC57A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3BC0ACD-C63E-4DBC-85CA-2ECCD5EC57A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

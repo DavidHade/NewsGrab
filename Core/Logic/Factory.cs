@@ -1,18 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Models;
 using DAL;
+using Core.Models;
+using DAL.EntityFramework.SQL;
 
 namespace Core
 {
     public class Factory
     {
+
         public static HtmlScraper CreateHtmlScraper()
         {
-            return new HtmlScraper(CreateSubstring(), CreateDataEntryModel(), CreateDataEntry(), CreateLogger());
+            return new HtmlScraper(CreateSubstring(), CreateDataEntryModel(), new DAL.EntityFramework.SQL.NewsEntry(), CreateDataEntry(), CreateLogger(), CreateDataService());
+        }
+
+        public static DataService CreateDataService()
+        {
+            return new DataService(CreateDataContext(), CreateLogger());
+        }
+
+        public static IRepository<DAL.EntityFramework.SQL.NewsEntry> CreateDataContext()
+        {
+            return new SQLRepository<DAL.EntityFramework.SQL.NewsEntry>(new DAL.EntityFramework.SQL.DataContext());
         }
 
         public static IWebsiteModel CreateTheGuardian()
