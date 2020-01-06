@@ -8,7 +8,7 @@ using Core.Models;
 namespace Core.Models
 {
 
-    public class TheGuardianModel : IWebsiteModel
+    public class TheGuardianModel : AbstractWebsiteModel
     {
         public TheGuardianModel()
         {
@@ -26,29 +26,34 @@ namespace Core.Models
                 "//body/figure/figure/div/div/div/p",
                 "//body/div[1]/section[5]/div/div/main/main/div[1]/div/p"
             };            
-            SearchStringStart = "http";
-            SearchStringEnd = "\" class";
-            SearchStringOffset = 0;
+            
             UrlModify = "";
-            ImageSsStart = "http"; //cannot retrieve images - this is a placeholder
-            ImageSsEnd = "placeholder";
+            
+
+            #region DeprecatedFields
+            //SearchStringStart = "http";
+            //SearchStringEnd = "\" class";
+            //SearchStringOffset = 0;
+            //ImageSsStart = "http"; //cannot retrieve images - this is a placeholder
+            //ImageSsEnd = "placeholder";
+            #endregion
         }
 
-        public string WebsiteUrl { get; set; }
-        public string NewsSource { get; set; }
-        public List<string> HeadlineXpaths { get; set; }
-        public string TitleXpath { get; set; }
-        public string HeadlineURLXPath { get; set; }
-        public List<string> ArticleXPaths { get; set; }
-        public string Headline { get; set; }
-        public string HeadlineUrl { get; set; }
-        public string ArticleURL { get; set; }
-        public string SearchStringStart { get; set; }
-        public string SearchStringEnd { get; set; }
-        public int SearchStringOffset { get; set; }
-        public string UrlModify { get; set; }
-        public string ImageXpath { get; set; }
-        public string ImageSsStart { get; set; }
-        public string ImageSsEnd { get; set; }
+        //public string WebsiteUrl { get; set; }
+        //public string NewsSource { get; set; }
+        //public List<string> HeadlineXpaths { get; set; }
+        //public string TitleXpath { get; set; }
+        //public string HeadlineURLXPath { get; set; }
+        //public List<string> ArticleXPaths { get; set; }
+        //public string Headline { get; set; }
+        //public string HeadlineUrl { get; set; }
+        //public string ArticleURL { get; set; }
+        //public string SearchStringStart { get; set; }
+        //public string SearchStringEnd { get; set; }
+        //public int SearchStringOffset { get; set; }
+        //public string UrlModify { get; set; }
+        //public string ImageXpath { get; set; }
+        //public string ImageSsStart { get; set; }
+        //public string ImageSsEnd { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Models
 {
-    public interface IWebsiteModel
+    public interface IWebsiteModel //replaced with AbstractWebsiteModel
     {
         string WebsiteUrl { get; set; }
         string NewsSource { get; set; }

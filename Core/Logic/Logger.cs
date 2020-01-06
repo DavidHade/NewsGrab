@@ -16,7 +16,7 @@ namespace Core
         public void Log(string message, ConsoleColor color)
         {
             Console.ForegroundColor = color;
-            Console.WriteLine(message);
+            Console.WriteLine($"{DateTime.Now.ToShortTimeString()} {message}");
             Console.ResetColor();
         }
     }

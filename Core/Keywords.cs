@@ -21,19 +21,19 @@ namespace Core
 
             
 
-            NewsDBDataContext dc = new NewsDBDataContext();
+            //NewsDBDataContext dc = new NewsDBDataContext();
             // Load article
-            var articles = (from i in dc.NewsEntries select i.Article);
+            //var articles = (from i in dc.NewsEntries select i.Article);
 
             //HashSet<string> hash = new HashSet<string>
             //    (from i in dc.NewsEntries select i.Article);
 
             string text = "";
 
-            foreach (var a in articles)
-            {
-                text += a;
-            }
+            //foreach (var a in articles)
+            //{
+            //    text += a;
+            //}
 
             //string[] words = text.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
             string[] words = Regex.Split(text, "\\b", RegexOptions.IgnoreCase);

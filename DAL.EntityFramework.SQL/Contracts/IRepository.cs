@@ -10,8 +10,8 @@ namespace DAL.EntityFramework.SQL
     {
         IQueryable<T> Collection();
         void Commit();
-        void Delete(string id); 
-        T Find(string id);
+        void Delete(string id); // TODO - Id column in database is int
+        T Find(string id); // TODO - Id column in database is int
         T FindHeadline(string Headline);
         void Insert(T t);
         void Update(T t);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DataEntryModel
+    public class DataEntryModel //Deprecated, using NewsEntry EF data model instead
     {
         public DateTime TimeAdded { get; set; }
         public string Headline { get; set; }

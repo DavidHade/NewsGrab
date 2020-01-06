@@ -1,0 +1,6 @@
+WITH CTE AS
+(
+SELECT *,ROW_NUMBER() OVER (PARTITION BY NewsEntry.Imagepath ORDER BY NewsEntry.Imagepath) AS RN
+FROM NewsEntry
+)
+DELETE FROM CTE WHERE RN < 3 AND RN > 1

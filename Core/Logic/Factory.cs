@@ -15,7 +15,7 @@ namespace Core
 
         public static HtmlScraper CreateHtmlScraper()
         {
-            return new HtmlScraper(CreateSubstring(), CreateDataEntryModel(), new DAL.EntityFramework.SQL.NewsEntry(), CreateDataEntry(), CreateLogger(), CreateDataService());
+            return new HtmlScraper(CreateSubstring(), CreateDataEntryModel(), new DAL.EntityFramework.SQL.NewsEntry(), CreateLogger(), CreateDataService());
         }
 
         public static DataService CreateDataService()
@@ -28,35 +28,35 @@ namespace Core
             return new SQLRepository<DAL.EntityFramework.SQL.NewsEntry>(new DAL.EntityFramework.SQL.DataContext());
         }
 
-        public static IWebsiteModel CreateTheGuardian()
-        {
-            return new TheGuardianModel();
-        }
+        //public static IWebsiteModel CreateTheGuardian()
+        //{
+        //    return new TheGuardianModel();
+        //}
 
-        public static IWebsiteModel CreateFoxNews()
-        {
-            return new FoxModel();
-        }
+        //public static IWebsiteModel CreateFoxNews()
+        //{
+        //    return new FoxModel();
+        //}
 
-        public static IWebsiteModel CreateNyTimesModel()
-        {
-            return new NyTimesModel();
-        }
+        //public static IWebsiteModel CreateNyTimesModel()
+        //{
+        //    return new NyTimesModel();
+        //}
 
-        public static IWebsiteModel CreateBbcModel()
-        {
-            return new BBCModel();
-        }
+        //public static IWebsiteModel CreateBbcModel()
+        //{
+        //    return new BBCModel();
+        //}
 
-        public static IWebsiteModel CreateTheVergeModel()
-        {
-            return new TheVergeModel();
-        }
+        //public static IWebsiteModel CreateTheVergeModel()
+        //{
+        //    return new TheVergeModel();
+        //}
 
-        public static IWebsiteModel CreateCnetModel()
-        {
-            return new CnetModel();
-        }
+        //public static IWebsiteModel CreateCnetModel()
+        //{
+        //    return new CnetModel();
+        //}
 
         //public static IWebsiteModel Create9to5Google()
         //{
@@ -68,10 +68,10 @@ namespace Core
             return new DataEntryModel();
         }
 
-        public static DataEntry CreateDataEntry()
-        {
-            return new DataEntry(new NewsDBDataContext());
-        }
+        //public static DataEntry CreateDataEntry()
+        //{
+        //    return new DataEntry(new NewsDBDataContext());
+        //}
 
         public static Substring CreateSubstring()
         {
@@ -83,9 +83,9 @@ namespace Core
             return new Logger();
         }
 
-        public static NewsDBDataContext CreateDBContext()
-        {
-            return new NewsDBDataContext();
-        }
+        //public static NewsDBDataContext CreateDBContext()
+        //{
+        //    return new NewsDBDataContext();
+        //}
     }
 }
