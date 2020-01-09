@@ -83,6 +83,7 @@ namespace Core
 
                     string imgUrl = null;
                     var imageNode = htmlDoc2.DocumentNode.SelectSingleNode(website.ImageXpath);
+                    var meta_img = htmlDoc2.DocumentNode.SelectSingleNode("//meta[@property='og:image']")?.Attributes["content"]?.Value;
 
                     HtmlNode title = htmlDoc2.DocumentNode.SelectSingleNode(website.TitleXpath);
 
@@ -149,7 +150,14 @@ namespace Core
                     //_DEM.Article = HtmlEntity.DeEntitize(sb?.ToString()); //could be null
                     EFnewsentryModel.Article = HtmlEntity.DeEntitize(sb?.ToString());
                     //_DEM.ImagePath = imgUrl; //could be null
-                    EFnewsentryModel.Imagepath = imgUrl;
+                    if (!string.IsNullOrEmpty(meta_img))
+                    {
+                        EFnewsentryModel.Imagepath = meta_img;
+                    }
+                    else
+                    {
+                        EFnewsentryModel.Imagepath = imgUrl;
+                    }
 
                     //_DEM.Category = null;
                     ArticleModel mlModel = new ArticleModel();
