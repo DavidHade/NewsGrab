@@ -38,7 +38,7 @@ namespace Core
                 GetData(htmlSraper, new CnetTechModel(), "");
 
                 void GetData(HtmlScraper htmlscraper, AbstractWebsiteModel model, 
-                    string headlineUrlXpath, bool isTest = true)
+                    string headlineUrlXpath, bool isTest = false)
                 {
                     foreach (var x in model.HeadlineXpaths)
                     {
